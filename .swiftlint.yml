@@ -1,0 +1,51 @@
+# 通常有効だけど無効にするルール
+disabled_rules:
+  - trailing_whitespace # Xocdeの自動生成ファイルで警告が出るため
+  - vertical_whitespace # Xocdeの自動生成ファイルで警告が出るため
+  - trailing_newline # Xocdeの自動生成ファイルで警告が出るため
+  - nesting # クロージャの使用ですぐに警告が出るため
+  - todo # すぐに修正できない場合があり、pushの度にlintに引っかかってbotに書き込まれるのがノイズになるから
+  - trailing_comma # つけた方が差分が見やすいため
+
+# 通常無効だけど有効にするルール
+opt_in_rules:
+  - force_unwrapping # フォースアンラップの禁止
+  - empty_string # 文字の判定にはisEmptyを使うべき
+  - empty_count # 上記同様、個数のチェックにはisEmptyを使うべき
+  - empty_collection_literal # 上記同様、個数のチェックにはisEmptyを使うべき
+  - trailing_closure # 「関数の最後の引数がclosureの場合、trailing closureを使用している」のチェックのため
+  - unowned_variable_capture # unowned selfの禁止
+  - first_where # fileter+firstはfirst(where: )を使う方が好ましいので
+  - last_where # 上記同様、last(where: )を使う方が好ましいので
+  - contains_over_first_not_nil # first != nil はcontainでチェックした方が好ましいので
+  - let_var_whitespace # コードの整列によるレビュアーの負担軽減のため
+  - private_action # レビュアーの負担軽減のため
+  - private_outlet # レビュアーの負担軽減のため
+
+analyzer_rules:
+  - capture_variable
+  - typesafe_array_init
+  - unused_declaration
+  - unused_import
+
+# 1行の文字列制限。適宜改行のチェックのため。
+line_length:
+  - 200 # warning
+  - 300 # error
+
+# メソッドの行数制限。メソッドが大きすぎのチェックのため。
+function_body_length:
+  - 100 # warning
+  - 200 # error
+
+# 変数名が2文字以上なら許可
+identifier_name:
+  min_length:
+    error: 2
+  excluded: # 以下の単語は定形語のためルールの対象外とする。
+    - id
+    - URL
+    - x
+    - y
+    - vc
+    - on

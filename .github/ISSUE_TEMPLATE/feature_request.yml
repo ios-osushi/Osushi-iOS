@@ -1,0 +1,10 @@
+name: Feature Request
+description: Create a Feature Request
+title: "[Feature Request]"
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: overview
+    attributes:
+      label: Overview
+      description: 提案内容を書いてください

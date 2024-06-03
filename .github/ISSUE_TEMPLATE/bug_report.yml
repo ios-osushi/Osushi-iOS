@@ -1,0 +1,38 @@
+name: Bug Report
+description: Create a report to Bug
+title: "[Bug]"
+labels: ["bug"]
+body:
+  - type: textarea
+    id: description_bug
+    attributes:
+      label: Describe the bug
+      description: 不具合を説明してください
+
+  - type: textarea
+    id: reproduction_procedure
+    attributes:
+      label: To Reproduce
+      description: バグの再現手順を箇条書きで書いてください
+      placeholder: |
+        1.TBD
+        2.TBD
+
+  - type: textarea
+    id: expected_behaviro
+    attributes:
+      label: Expected behavior
+      description: 理想的な動作
+      placeholder: |
+        1.TBD
+        2.TBD
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: 開発環境
+      placeholder: |
+        Xcode: v15.0
+        Swift: 5.10
+        iOS: 17.0
