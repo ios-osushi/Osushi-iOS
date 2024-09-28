@@ -2,7 +2,7 @@ import Foundation
 
 final class APIModelData: ObservableObject {
     @Published var markdownContent: [String] = []
-    @Published var errorMessage: String = "不明なエラー"
+    @Published var errorMessage: String = Strings.Other.unknown
     
     private var lastFetchDate: Date?
     private let fetchThresholdSeconds: TimeInterval = 3600 // 1hour

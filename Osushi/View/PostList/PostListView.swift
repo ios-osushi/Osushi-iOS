@@ -16,7 +16,7 @@ struct PostListView: View {
                     }
                 }
             }
-            .navigationTitle("投稿一覧")
+            .navigationTitle(Strings.PostList.title)
             .refreshable {
                 viewModel.fetchPosts()
             }

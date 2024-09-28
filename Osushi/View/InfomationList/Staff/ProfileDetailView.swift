@@ -15,14 +15,14 @@ struct ProfileDetailView: View {
             
             HStack {
                 Link(
-                    "X",
+                    Strings.Infomation.x,
                     destination: URL(
                         string: "https://twitter.com/\(profile.x)"
                     )!
                 )
                 
                 Link(
-                    "GitHub",
+                    Strings.Infomation.gitHub,
                     destination: URL(
                         string: "https://github.com/\(profile.gitHub)"
                     )!

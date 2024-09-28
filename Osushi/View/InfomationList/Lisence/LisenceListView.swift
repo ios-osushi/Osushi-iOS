@@ -36,7 +36,7 @@ SOFTWARE.
                     )
                 )
             }
-            .navigationTitle("ライセンス")
+            .navigationTitle(Strings.Infomation.license)
         }
     }
 }
