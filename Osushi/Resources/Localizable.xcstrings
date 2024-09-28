@@ -1,0 +1,85 @@
+{
+  "sourceLanguage" : "ja",
+  "strings" : {
+    "GitHub" : {
+
+    },
+    "iOS Osushi" : {
+
+    },
+    "iOS Osushi🍣" : {
+
+    },
+    "MarkdownUI" : {
+
+    },
+    "X" : {
+
+    },
+    "お気に入り" : {
+
+    },
+    "お気に入りボタン" : {
+
+    },
+    "お気に入りボタンの説明" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "この記事をお気に入りすることができます🍣\nお気に入りした記事は下のタブから確認することができます！"
+          }
+        }
+      }
+    },
+    "お気に入りリストが空の場合のメッセージ" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "お気に入りボタンをタップして追加してみよう🍣"
+          }
+        }
+      }
+    },
+    "お気に入り一覧" : {
+
+    },
+    "コミュニティの説明" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "iOS Osushi は、iOS 関連のニュースを定期的に配信するサイトです。"
+          }
+        }
+      }
+    },
+    "バージョン" : {
+
+    },
+    "ホーム" : {
+
+    },
+    "ライセンス" : {
+
+    },
+    "不明" : {
+
+    },
+    "投稿一覧" : {
+
+    },
+    "詳細情報" : {
+
+    },
+    "運営" : {
+
+    },
+    "運営メンバー" : {
+
+    }
+  },
+  "version" : "1.0"
+}

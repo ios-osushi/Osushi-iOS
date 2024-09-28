@@ -29,6 +29,6 @@ final class PostListViewModel: ObservableObject {
                     .trimmingCharacters(in: .whitespaces)
             }
         }
-        return "詳細情報が見つかりません。"
+        return Strings.PostList.errorMessage
     }
 }
