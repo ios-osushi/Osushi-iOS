@@ -20,7 +20,7 @@ struct ContentView: View {
             FavoriteListView()
                 .modelContainer(for: Favorite.self)
                 .tabItem {
-                    Label(Strings.Home.favorite, image: "star")
+                    Label(Strings.Home.favorite, systemImage: "star")
                 }
                 .tag(Tab.favorite)
             
