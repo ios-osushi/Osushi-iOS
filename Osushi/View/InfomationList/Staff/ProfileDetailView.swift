@@ -18,14 +18,14 @@ struct ProfileDetailView: View {
                     Strings.Infomation.x,
                     destination: URL(
                         string: "https://twitter.com/\(profile.x)"
-                    )!
+                    )!// swiftlint:disable:this force_unwrapping
                 )
                 
                 Link(
                     Strings.Infomation.gitHub,
                     destination: URL(
                         string: "https://github.com/\(profile.gitHub)"
-                    )!
+                    )!// swiftlint:disable:this force_unwrapping
                 )
             }
         }
