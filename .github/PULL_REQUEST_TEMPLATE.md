@@ -1,5 +1,3 @@
-# Issue
-
 Close #IssueNumber
 
 # 対応した内容
