@@ -39,6 +39,9 @@ struct DetailPostView: View {
                         tappedFavoriteButton()
                     }
                     .popoverTip(FavoriteButtonTip())
+                    .sensoryFeedback(.impact(weight: .light), trigger: isFavorited) { _, new in
+                        new == true
+                    }
             }
         }
         .task {
