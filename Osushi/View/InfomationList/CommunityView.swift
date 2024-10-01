@@ -22,7 +22,7 @@ struct CommunityView: View {
             
             Spacer()
         }
-        Text("iOS Osushiは、iOS関連のニュースを定期的に配信するサイトです。")
+        Text(Strings.Infomation.description)
     }
 }
 

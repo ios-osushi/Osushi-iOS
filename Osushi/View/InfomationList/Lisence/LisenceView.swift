@@ -17,6 +17,6 @@ struct LisenceView: View {
     }
     
     private var url: URL {
-        URL(string: urlString)!
+        URL(string: urlString)! // swiftlint:disable:this force_unwrapping
     }
 }
