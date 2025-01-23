@@ -22,13 +22,11 @@ final class PostListViewModel: ObservableObject {
 
     func descriptText(_ content: String) -> String {
         let lines = content.components(separatedBy: "\n")
-        for line in lines {
-            if line.starts(with: "description:") {
-                return line
-                    .replacingOccurrences(of: "description:", with: "")
-                    .trimmingCharacters(in: .whitespaces)
-            }
+        for line in lines where line.starts(with: "description:") {
+            return line
+                .replacingOccurrences(of: "description:", with: "")
+                .trimmingCharacters(in: .whitespaces)
         }
-        return "詳細情報が見つかりません。"
+        return Strings.PostList.errorMessage
     }
 }
