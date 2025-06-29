@@ -1,7 +1,7 @@
 import Foundation
 
 final class APIModelData: ObservableObject {
-    @Published var markdownContent: [String] = []
+    @Published var markdownContents: [String] = []
     @Published var errorMessage: String = Strings.Other.unknown
     
     private var lastFetchDate: Date?
@@ -32,7 +32,7 @@ final class APIModelData: ObservableObject {
     
     @MainActor
     private func fetchPosts() async {
-        markdownContent.removeAll()
+        markdownContents.removeAll()
         guard var url = URL(string: Url.osushiApi) else { return }
         url.append(queryItems: APIModelData.githubApiQuery)
         
@@ -69,11 +69,8 @@ final class APIModelData: ObservableObject {
         
         do {
             let (data, _) = try await URLSession.shared.data(from: url)
-            let markdownString = String(decoding: data, as: UTF8.self)
-            guard markdownString.starts(with: " ") else {
-                markdownContent.append(markdownString)
-                return
-            }
+            guard let markdownString = String(data: data, encoding: .utf8) else { return }
+            markdownContents.append(markdownString)
         } catch {
             fatalError("API Request Failed: \(error.localizedDescription)")
         }

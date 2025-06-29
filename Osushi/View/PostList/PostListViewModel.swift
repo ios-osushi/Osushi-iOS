@@ -9,13 +9,13 @@ final class PostListViewModel: ObservableObject {
     }
     
     var sortedPosts: [String] {
-        let posts = modelData.markdownContent
+        let posts = modelData.markdownContents
         return posts.sorted(by: >)
     }
     
     func fetchPosts() {
         modelData.fetchPostsIfNeeded()
-        modelData.$markdownContent.assign(to: &$posts)
+        modelData.$markdownContents.assign(to: &$posts)
     }
     
     // MARK: Post row
