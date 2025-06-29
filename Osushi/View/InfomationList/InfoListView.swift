@@ -18,19 +18,19 @@ struct InfoListView: View {
                 }
                 
                 Section {
-                    NavigationLink(Strings.Infomation.management) {
+                    NavigationLink("運営") {
                         StaffListView(profiles: InformationListViewModel.profiles)
                     }
-                    NavigationLink(Strings.Infomation.license) {
+                    NavigationLink("ライセンス") {
                         LisenceListView()
                     }
                 }
                 
                 Section {
-                    LabeledContent(Strings.Infomation.version, value: viewModel.versionString)
+                    LabeledContent("バージョン", value: viewModel.versionString)
                 }
             }
-            .navigationTitle(Strings.Infomation.title)
+            .navigationTitle("iOS Osushi🍣")
         }
     }
 }

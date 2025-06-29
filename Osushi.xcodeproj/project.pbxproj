@@ -36,8 +36,6 @@
 		3F91F1682BBA88E1008EC967 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F91F1672BBA88E1008EC967 /* Preview Assets.xcassets */; };
 		3F91F17C2BBA88E1008EC967 /* OsushiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F91F17B2BBA88E1008EC967 /* OsushiUITests.swift */; };
 		3F91F17E2BBA88E1008EC967 /* OsushiUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F91F17D2BBA88E1008EC967 /* OsushiUITestsLaunchTests.swift */; };
-		3FC7CE6F2CA80AF90058BFB0 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 3FC7CE6E2CA80AF90058BFB0 /* Localizable.xcstrings */; };
-		3FC7CE722CA80B590058BFB0 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC7CE712CA80B590058BFB0 /* Strings.swift */; };
 		3FF9231D2BBA8AF000092F07 /* MarkdownUI in Frameworks */ = {isa = PBXBuildFile; productRef = 3FF9231C2BBA8AF000092F07 /* MarkdownUI */; };
 /* End PBXBuildFile section */
 
@@ -91,8 +89,6 @@
 		3F91F1772BBA88E1008EC967 /* OsushiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OsushiUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F91F17B2BBA88E1008EC967 /* OsushiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OsushiUITests.swift; sourceTree = "<group>"; };
 		3F91F17D2BBA88E1008EC967 /* OsushiUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OsushiUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		3FC7CE6E2CA80AF90058BFB0 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
-		3FC7CE712CA80B590058BFB0 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -215,7 +211,6 @@
 				3F6891292BBAF473003E7982 /* Model */,
 				3F91F1642BBA88E1008EC967 /* Assets.xcassets */,
 				3F91F1662BBA88E1008EC967 /* Preview Content */,
-				3FC7CE702CA80B480058BFB0 /* Resources */,
 			);
 			path = Osushi;
 			sourceTree = "<group>";
@@ -244,15 +239,6 @@
 				3F91F17D2BBA88E1008EC967 /* OsushiUITestsLaunchTests.swift */,
 			);
 			path = OsushiUITests;
-			sourceTree = "<group>";
-		};
-		3FC7CE702CA80B480058BFB0 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				3FC7CE712CA80B590058BFB0 /* Strings.swift */,
-				3FC7CE6E2CA80AF90058BFB0 /* Localizable.xcstrings */,
-			);
-			path = Resources;
 			sourceTree = "<group>";
 		};
 		3FF9231B2BBA8AF000092F07 /* Frameworks */ = {
@@ -387,7 +373,6 @@
 			files = (
 				3F91F1682BBA88E1008EC967 /* Preview Assets.xcassets in Resources */,
 				3F91F1652BBA88E1008EC967 /* Assets.xcassets in Resources */,
-				3FC7CE6F2CA80AF90058BFB0 /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -444,7 +429,6 @@
 				3F68911D2BBAF45A003E7982 /* ProfileDetailView.swift in Sources */,
 				3F6891392BBAF516003E7982 /* PostRowView.swift in Sources */,
 				3F91F1632BBA88DE008EC967 /* ContentView.swift in Sources */,
-				3FC7CE722CA80B590058BFB0 /* Strings.swift in Sources */,
 				3F91F1612BBA88DE008EC967 /* OsushiApp.swift in Sources */,
 				3F68912D2BBAF473003E7982 /* Profile.swift in Sources */,
 				3F68911F2BBAF45A003E7982 /* StaffListView.swift in Sources */,
@@ -555,7 +539,6 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
-				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -613,7 +596,6 @@
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_EMIT_LOC_STRINGS = YES;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

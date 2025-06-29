@@ -22,13 +22,13 @@ struct FavoriteListView: View {
                     }
                 }
             }
-            .navigationTitle(Strings.FavoriteList.title)
+            .navigationTitle("お気に入り一覧")
             .overlay {
                 if favoritePosts.isEmpty {
                     ContentUnavailableView {
-                        Label(Strings.FavoriteList.emptyListTitle, systemImage: "tray.fill")
+                        Label("お気に入りがありません", systemImage: "tray.fill")
                     } description: {
-                        Text(Strings.FavoriteList.emptyListMessage)
+                        Text("お気に入りボタンをタップして追加してみよう🍣")
                     }
                 }
             }

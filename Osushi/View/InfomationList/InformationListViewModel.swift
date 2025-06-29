@@ -20,6 +20,6 @@ final class InformationListViewModel {
     }
     
     private func makeVersionString(forInfoDictionaryKey key: String) -> String {
-        Bundle.main.object(forInfoDictionaryKey: key) as? String ?? Strings.Other.unknown
+        Bundle.main.object(forInfoDictionaryKey: key) as? String ?? "不明"
     }
 }

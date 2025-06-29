@@ -14,7 +14,7 @@ struct StaffListView: View {
                     }
                 }
             }
-            .navigationTitle(Strings.Infomation.staffListTitle)
+            .navigationTitle("運営メンバー")
         }
     }
 }

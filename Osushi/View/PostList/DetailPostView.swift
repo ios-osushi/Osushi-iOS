@@ -5,10 +5,10 @@ import TipKit
 
 struct FavoriteButtonTip: Tip {
     var title: Text {
-        Text(Strings.PostList.tipsTitle)
+        Text("お気に入りボタン")
     }
     var message: Text? {
-        Text(Strings.PostList.tipsMessage)
+        Text("この記事をお気に入りすることができます🍣\nお気に入りした記事は下のタブから確認することができます！")
     }
 }
 

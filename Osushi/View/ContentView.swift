@@ -13,20 +13,20 @@ struct ContentView: View {
         TabView(selection: $selection) {
             PostListView()
                 .tabItem {
-                    Label(Strings.Home.home, systemImage: "house")
+                    Label("ホーム", systemImage: "house")
                 }
                 .tag(Tab.top)
             
             FavoriteListView()
                 .modelContainer(for: Favorite.self)
                 .tabItem {
-                    Label(Strings.Home.favorite, systemImage: "star")
+                    Label("お気に入り", systemImage: "star")
                 }
                 .tag(Tab.favorite)
             
             InfoListView()
                 .tabItem {
-                    Label(Strings.Home.iosOsushi, image: .tabOsushi)
+                    Label("iOS Osushi", image: .tabOsushi)
                 }.tag(Tab.setting)
         }
     }
