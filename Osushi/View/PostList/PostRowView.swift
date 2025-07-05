@@ -7,7 +7,7 @@ struct PostRowView: View {
     
     var heading1Text: String {
         let lines = markdownContent.components(separatedBy: "\n")
-        for line in lines where  line.starts(with: "# ") {
+        for line in lines where line.starts(with: "# ") {
             return line.replacingOccurrences(of: "# ", with: "").trimmingCharacters(in: .whitespaces)
         }
         return ""
