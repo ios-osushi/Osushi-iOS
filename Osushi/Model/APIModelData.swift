@@ -1,7 +1,7 @@
 import Foundation
 
 final class APIModelData: ObservableObject {
-    @Published var markdownContent: [String] = []
+    @Published var markdownContents: [String] = []
     @Published var errorMessage: String = "不明なエラー"
     
     private var lastFetchDate: Date?
@@ -17,76 +17,62 @@ final class APIModelData: ObservableObject {
     ]
     
     func fetchPostsIfNeeded() {
-        let now: Date = .now
-        if let lastFetchDate {
-            guard now.timeIntervalSince(lastFetchDate) > fetchThresholdSeconds else {
-                print("取得できませんでした。：\(now.timeIntervalSince(lastFetchDate))")
-                return
+        Task {
+            let now: Date = .now
+            if let lastFetchDate {
+                guard now.timeIntervalSince(lastFetchDate) > fetchThresholdSeconds else {
+                    print("取得できませんでした。：\(now.timeIntervalSince(lastFetchDate))")
+                    return
+                }
             }
+            await fetchPosts()
+            lastFetchDate = now
         }
-        fetchPosts()
-        lastFetchDate = now
     }
     
-    private func fetchPosts() {
-        markdownContent.removeAll()
+    @MainActor
+    private func fetchPosts() async {
+        markdownContents.removeAll()
         guard var url = URL(string: Url.osushiApi) else { return }
         url.append(queryItems: APIModelData.githubApiQuery)
         
-        URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
-            guard let data, let self else { return }
-            if let error {
-                // TODO: エラー処理をここに記述
-                DispatchQueue.main.async {
-                    self.errorMessage = "API Request Failed: \(error.localizedDescription)"
-                }
-                return
-            }
+        do {
+            let (data, _) = try await URLSession.shared.data(from: url)
             
             // APIエラーレスポンスのハンドリング
-            if let rateLimitError = try? self.decoder.decode(RateLimitError.self, from: data) {
-                DispatchQueue.main.async {
-                    self.errorMessage = rateLimitError.message
-                }
+            if let rateLimitError = try? decoder.decode(RateLimitError.self, from: data) {
+                errorMessage = rateLimitError.message
                 return
             }
             
-            if let response = try? self.decoder.decode([Post].self, from: data) {
-                DispatchQueue.main.async {
+            if let response = try? decoder.decode([Post].self, from: data) {
+                // TaskGroupを使用して並列処理する
+                await withTaskGroup(of: Void.self) { group in
                     for post in response {
-                        self.fetchDownloadUrl(post.downloadUrl)
+                        group.addTask {
+                            await self.fetchDownloadUrl(post.downloadUrl)
+                        }
                     }
                 }
-                return
             }
+        } catch {
+            errorMessage = "API Request Failed: \(error.localizedDescription)"
         }
-        .resume()
     }
     
-    private func fetchDownloadUrl(_ downloadUrl: String) {
+    @MainActor
+    private func fetchDownloadUrl(_ downloadUrl: String) async {
         if downloadUrl == Url.indexDownload { return }
         guard let url = URL(string: downloadUrl) else {
             fatalError("Invalid Url")
         }
         
-        URLSession.shared.dataTask(with: url) { data, response, error in
-            guard let data else { return }
-            if let error {
-                fatalError("API Request Failed: \(error.localizedDescription)")
-            }
-            
-            if let markdownString = String(data: data, encoding: .utf8) {
-                DispatchQueue.main.async {
-                    if markdownString.starts(with: " ") { return }
-                    self.markdownContent.append(markdownString)
-                }
-                return
-            } else {
-                self.markdownContent.append("**エラー**")
-                // TODO: アラートを表示
-                print("Error fetching markdown content: \(error?.localizedDescription ?? "Unknown error")")
-            }
+        do {
+            let (data, _) = try await URLSession.shared.data(from: url)
+            guard let markdownString = String(data: data, encoding: .utf8) else { return }
+            markdownContents.append(markdownString)
+        } catch {
+            fatalError("API Request Failed: \(error.localizedDescription)")
         }
-        .resume()
     }
 }

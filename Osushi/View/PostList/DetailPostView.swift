@@ -63,10 +63,8 @@ struct DetailPostView: View {
     }
     
     private func setupData() {
-        for favoritePost in favoritePosts {
-            if favoritePost.post == markdownContent {
-                isFavorited = true
-            }
+        for favoritePost in favoritePosts where favoritePost.post == markdownContent {
+            isFavorited = true
         }
     }
     
