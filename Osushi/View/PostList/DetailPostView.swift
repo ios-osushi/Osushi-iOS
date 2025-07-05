@@ -71,6 +71,12 @@ struct DetailPostView: View {
     private func add(post: String) {
         let data = Favorite(post: post)
         context.insert(data)
+        do {
+            try context.save()
+        } catch {
+            // TODO: アラートを表示
+            print("追加時にエラーが発生しました: \(error)")
+        }
     }
     
     private func delete(post: String) {
